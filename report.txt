@@ -1,0 +1,39 @@
+--------------------------------------------------------------------------------
+Processing file 'rnn_new.py'
+ outputting to 'foo-upgraded.py'
+--------------------------------------------------------------------------------
+
+'rnn_new.py' Line 24
+--------------------------------------------------------------------------------
+
+Added keyword 'axis' to reordered function 'tf.split'
+Added keyword 'num_or_size_splits' to reordered function 'tf.split'
+Added keyword 'value' to reordered function 'tf.split'
+
+    Old: 	x = tf.split(0, n_chunks, x)
+                                       
+    New: 	x = tf.split(axis=0, num_or_size_splits=n_chunks, value=x)
+                       ~~~~~   ~~~~~~~~~~~~~~~~~~~          ~~~~~~   
+
+'rnn_new.py' Line 41
+--------------------------------------------------------------------------------
+
+Renamed function 'tf.initialize_all_variables' to 'tf.global_variables_initializer'
+
+    Old: 		sess.run(tf.initialize_all_variables())
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~    
+    New: 		sess.run(tf.global_variables_initializer())
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
+
+'rnn_new.py' Line 35
+--------------------------------------------------------------------------------
+
+Added keyword 'logits' to reordered function 'tf.nn.softmax_cross_entropy_with_logits'
+Added keyword 'labels' to reordered function 'tf.nn.softmax_cross_entropy_with_logits'
+
+    Old: 	cost = tf.reduce_mean( tf.nn.softmax_cross_entropy_with_logits(prediction,y))
+                                                                                        
+    New: 	cost = tf.reduce_mean( tf.nn.softmax_cross_entropy_with_logits(logits=prediction,labels=y))
+                                                                         ~~~~~~~           ~~~~~~~    
+
+
